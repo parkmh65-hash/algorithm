@@ -22,3 +22,4 @@ def linear_search(req: SearchRequest):
         "found": found,
         "complexity": "O(N)"
     }
+ 
