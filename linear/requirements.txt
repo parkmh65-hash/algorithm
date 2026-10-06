@@ -1,10 +1,2 @@
 fastapi
 uvicorn
-langchain
-langchain-google-genai
-langchain-community
-duckduckgo-search
-youtube-search
-youtube-transcript-api
-pytz
-pydantic
