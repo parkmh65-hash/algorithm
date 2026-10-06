@@ -3,23 +3,15 @@ from pydantic import BaseModel
 
 app = FastAPI()
 
-class SearchRequest(BaseModel):
+class SearchReq(BaseModel):
     arr: list[int]
     target: int
 
 @app.post("/linear-search")
-def linear_search(req: SearchRequest):
+def linear_search(req: SearchReq):
     steps = []
-    found = False
     for i, val in enumerate(req.arr):
-        steps.append({"index": i, "value": val})
+        steps.append(f"인덱스 {i} 확인: {val}")
         if val == req.target:
-            found = True
-            break
-            
-    return {
-        "steps": steps,
-        "found": found,
-        "complexity": "O(N)"
-    }
- 
+            return {"steps": steps, "found": True, "count": i + 1, "complexity": "O(N)"}
+    return {"steps": steps, "found": False, "count": len(req.arr), "complexity": "O(N)"}
