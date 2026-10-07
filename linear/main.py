@@ -34,7 +34,13 @@ def binary_search(req: SearchRequest):
     while left <= right:
         mid = (left + right) // 2
         val = req.arr[mid]
-        steps.append({"left": left, "right": right, "mid": mid, "value": val})
+        
+        steps.append({
+            "left": left, 
+            "right": right, 
+            "mid": mid, 
+            "value": val
+        })
         
         if val == req.target:
             found = True
